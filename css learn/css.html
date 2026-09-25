@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Definitiva de Selectores CSS (CSS Diner)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9fb;
+        }
+        h1 {
+            color: #0046be;
+            border-bottom: 3px solid #0046be;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #1a1a2e;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        .selector-card {
+            background: white;
+            border-left: 5px solid #00f0ff;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 0 8px 8px 0;
+        }
+        code {
+            background-color: #1e1e2f;
+            color: #00f0ff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        p {
+            margin: 8px 0;
+        }
+        .example {
+            color: #666;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .selector-card { break-inside: avoid; border: 1px solid #ddd; border-left: 5px solid #0046be; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Guía Definitiva de Selectores CSS</h1>
+    <p style="text-align: center; color: #666;">Resumen completo basado en los niveles de CSS Diner para dominar la selección de elementos HTML.</p>
+
+    <h2>1. Selectores Básicos</h2>
+    
+    <div class="selector-card">
+        <p><strong>Selector de Tipo:</strong> <code>etiqueta</code></p>
+        <p>Selecciona todos los elementos HTML que coincidan con el nombre de la etiqueta.</p>
+        <p class="example">Ejemplo: <code>plate</code> selecciona todos los platos.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Selector Universal:</strong> <code>*</code></p>
+        <p>Selecciona absolutamente todos los elementos de la página.</p>
+        <p class="example">Ejemplo: <code>*</code> selecciona todo.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Selector de ID:</strong> <code>#id</code></p>
+        <p>Selecciona un único elemento específico que tenga ese identificador.</p>
+        <p class="example">Ejemplo: <code>#fancy</code> selecciona el elemento con id="fancy".</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Selector de Clase:</strong> <code>.clase</code></p>
+        <p>Selecciona todos los elementos que compartan una clase determinada.</p>
+        <p class="example">Ejemplo: <code>.small</code> selecciona todos los elementos pequeños.</p>
+    </div>
+
+
+    <h2>2. Combinadores y Relaciones</h2>
+
+    <div class="selector-card">
+        <p><strong>Selector Descendiente:</strong> <code>A B</code></p>
+        <p>Selecciona todos los elementos <code>B</code> que estén dentro de un elemento <code>A</code> (en cualquier nivel de profundidad).</p>
+        <p class="example">Ejemplo: <code>plate apple</code> selecciona las manzanas que están dentro de cualquier plato.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Selector de Combinación (Múltiple):</strong> <code>A, B</code></p>
+        <p>Selecciona varios elementos independientes a la vez agrupándolos por comas.</p>
+        <p class="example">Ejemplo: <code>plate, bento</code> selecciona todos los platos y todos los bentos.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Selector de Hijo Directo:</strong> <code>A > B</code></p>
+        <p>Selecciona los elementos <code>B</code> que sean hijos directos (primer nivel interior) de <code>A</code>.</p>
+        <p class="example">Ejemplo: <code>plate > orange</code> selecciona solo las naranjas que están directamente sobre un plato.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Selector de Hermano Adyacente:</strong> <code>A + B</code></p>
+        <p>Selecciona el elemento <code>B</code> que está <em>inmediatamente después</em> y al mismo nivel que <code>A</code>.</p>
+        <p class="example">Ejemplo: <code>plate + apple</code> selecciona la manzana que está justo al lado/después de un plato.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Selector de Hermanos Generales:</strong> <code>A ~ B</code></p>
+        <p>Selecciona <em>todos</em> los elementos <code>B</code> que se encuentren después de <code>A</code> compartiendo el mismo contenedor padre.</p>
+        <p class="example">Ejemplo: <code>bento ~ pickle</code> selecciona todos los pepinillos que aparecen después de un bento.</p>
+    </div>
+
+
+    <h2>3. Pseudo-clases (Posición y Orden)</h2>
+
+    <div class="selector-card">
+        <p><strong>Primer Hijo:</strong> <code>:first-child</code></p>
+        <p>Selecciona un elemento que sea el primer hijo directo de su contenedor.</p>
+        <p class="example">Ejemplo: <code>plate :first-child</code> selecciona el primer objeto dentro de un plato.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Último Hijo:</strong> <code>:last-child</code></p>
+        <p>Selecciona un elemento que sea el último hijo directo de su contenedor.</p>
+        <p class="example">Ejemplo: <code>orange:last-child</code> selecciona la última naranja de una torre.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Único Hijo:</strong> <code>:only-child</code></p>
+        <p>Selecciona elementos que no tienen hermanos (son los únicos dentro de su padre).</p>
+        <p class="example">Ejemplo: <code>apple:only-child</code> selecciona manzanas que están solas en su contenedor.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>N-ésimo Hijo:</strong> <code>:nth-child(n)</code></p>
+        <p>Selecciona un elemento basándose en su posición numérica exacta dentro de su padre (empezando desde el 1).</p>
+        <p class="example">Ejemplo: <code>plate:nth-child(3)</code> selecciona el tercer plato.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>N-ésimo Hijo desde el final:</strong> <code>:nth-last-child(n)</code></p>
+        <p>Igual que el anterior, pero contando de abajo hacia arriba o de derecha a izquierda.</p>
+        <p class="example">Ejemplo: <code>bento:nth-last-child(2)</code> selecciona el penúltimo bento.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>N-ésimo de un Tipo:</strong> <code>:nth-of-type(n)</code></p>
+        <p>Selecciona el n-ésimo elemento de un tipo específico de etiqueta, ignorando a los demás.</p>
+        <p class="example">Ejemplo: <code>plate:nth-of-type(2)</code> selecciona el segundo plato.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Primer Tipo:</strong> <code>:first-of-type</code> / <strong>Último Tipo:</strong> <code>:last-of-type</code></p>
+        <p>Selecciona el primer o último elemento de ese tipo específico dentro de su contenedor.</p>
+        <p class="example">Ejemplo: <code>orange:first-of-type</code></p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Elemento Vacío:</strong> <code>:empty</code></p>
+        <p>Selecciona elementos que no contienen ningún otro elemento ni texto en su interior.</p>
+        <p class="example">Ejemplo: <code>bento:empty</code> selecciona cajas bento vacías.</p>
+    </div>
+
+
+    <h2>4. Pseudo-clases de Negación</h2>
+
+    <div class="selector-card">
+        <p><strong>Negación:</strong> <code>:not(selector)</code></p>
+        <p>Selecciona todos los elementos que <em>no</em> coincidan con el selector indicado entre paréntesis.</p>
+        <p class="example">Ejemplo: <code>apple:not(.small)</code> selecciona las manzanas que no tienen la clase small.</p>
+    </div>
+
+
+    <h2>5. Selectores de Atributos</h2>
+
+    <div class="selector-card">
+        <p><strong>Tiene Atributo:</strong> <code>[atributo]</code></p>
+        <p>Selecciona cualquier elemento que contenga ese atributo, sin importar su valor.</p>
+        <p class="example">Ejemplo: <code>[for]</code> selecciona elementos que tengan el atributo for.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Valor Exacto:</strong> <code>[atributo="valor"]</code></p>
+        <p>Selecciona elementos cuyo atributo coincida exactamente con el valor especificado (sensible a mayúsculas).</p>
+        <p class="example">Ejemplo: <code>[for="Vitaly"]</code> selecciona elementos cuyo atributo for sea exactamente Vitaly.</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Empieza por:</strong> <code>[atributo^="valor"]</code></p>
+        <p>Selecciona elementos cuyo valor de atributo comience con esos caracteres específicos.</p>
+        <p class="example">Ejemplo: <code>[for^="Sa"]</code> selecciona nombres que empiezan por "Sa" (Sam, Sarah).</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Termina en:</strong> <code>[atributo$="valor"]</code></p>
+        <p>Selecciona elementos cuyo valor de atributo termine con esos caracteres.</p>
+        <p class="example">Ejemplo: <code>[for$="ato"]</code> selecciona nombres que terminan en "ato" (Hayato, Minato).</p>
+    </div>
+
+    <div class="selector-card">
+        <p><strong>Contiene (Comodín):</strong> <code>[atributo*="valor"]</code></p>
+        <p>Selecciona elementos cuyo valor de atributo contenga esos caracteres en cualquier parte.</p>
+        <p class="example">Ejemplo: <code>[for*="obb"]</code> selecciona nombres que contienen "obb" (Robbie, Bobby).</p>
+    </div>
+
+</body>
+</html>
